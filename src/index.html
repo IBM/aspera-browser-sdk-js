@@ -165,7 +165,7 @@
       }
 
       function testServer() {
-        asperaBrowser.testBrowserConnection().then(response => {
+        asperaBrowser.testConnection().then(response => {
           console.log('TEST SUCCESS', response);
         }).catch(error => {
           console.log('TEST FAIL', error);
@@ -181,13 +181,13 @@
       }
 
       function transfer() {
-        const browserSpec = {
+        const desktopSpec = {
           use_absolute_destination_path: false
         };
 
         try {
           const transferSpec = JSON.parse(document.querySelector('#test-input').value);
-          asperaBrowser.startTransfer(transferSpec, browserSpec).then(response => {
+          asperaBrowser.startTransfer(transferSpec, desktopSpec).then(response => {
             console.log('TRANSFER SUCCESS', response);
           }).catch(error => {
             console.log('TRANSFER FAIL', error);

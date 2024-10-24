@@ -132,7 +132,7 @@ export interface CustomBrandingOptions {
   theme: CustomTheme;
 }
 
-export interface BrowserSpec {
+export interface DesktopSpec {
   /**
    * By default, the destination of a download is relative to the user's download directory setting.
    * Setting this value to `true` overrides this behavior, using absolute paths instead. This is useful

@@ -3,7 +3,7 @@ import {client} from '../helpers/client/client';
 import {errorLog, generateErrorBody, generatePromiseObjects, isValidTransferSpec, randomUUID, throwError} from '../helpers/helpers';
 import {asperaBrowser} from '../index';
 import {BrowserInfo, TransferResponse} from '../models/aspera-browser.model';
-import {CustomBrandingOptions, DataTransferResponse, BrowserSpec, BrowserStyleFile, BrowserTransfer, FileDialogOptions, FolderDialogOptions, InitOptions, ModifyTransferOptions, ResumeTransferOptions, SafariExtensionEvent, TransferSpec, WebsocketEvent} from '../models/models';
+import {CustomBrandingOptions, DataTransferResponse, BrowserStyleFile, BrowserTransfer, DesktopSpec, FileDialogOptions, FolderDialogOptions, InitOptions, ModifyTransferOptions, ResumeTransferOptions, SafariExtensionEvent, TransferSpec, WebsocketEvent} from '../models/models';
 
 /**
  * Check if IBM Aspera for Desktop connection works. This function is called by init
@@ -88,11 +88,11 @@ export const init = (options?: InitOptions): Promise<any> => {
  * Start a transfer
  *
  * @param transferSpec standard transferSpec for transfer
- * @param browserSpec IBM Aspera Browser settings when starting a transfer
+ * @param desktopSpec IBM Aspera for Desktop settings when starting a transfer
  *
  * @returns a promise that resolves if transfer initiation is successful and rejects if transfer cannot be started
  */
-export const startTransfer = (transferSpec: TransferSpec, browserSpec: BrowserSpec): Promise<BrowserTransfer> => {
+export const startTransfer = (transferSpec: TransferSpec, desktopSpec: DesktopSpec): Promise<BrowserTransfer> => {
   if (!asperaBrowser.isReady) {
     return throwError(messages.serverNotVerified);
   }
@@ -105,7 +105,7 @@ export const startTransfer = (transferSpec: TransferSpec, browserSpec: BrowserSp
 
   const payload = {
     transfer_spec: transferSpec,
-    browser_spec: browserSpec,
+    desktop_spec: desktopSpec,
     app_id: asperaBrowser.globals.appId,
   };
 

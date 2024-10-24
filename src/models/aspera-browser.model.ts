@@ -1,4 +1,4 @@
-import {CustomBrandingOptions, DataTransferResponse, BrowserSpec, BrowserTransfer, FileDialogOptions, FolderDialogOptions, InitOptions, InstallerInfoResponse, InstallerOptions, ModifyTransferOptions, ResumeTransferOptions, SafariExtensionEvent, TransferSpec, WebsocketEvent} from './models';
+import {CustomBrandingOptions, DataTransferResponse, BrowserTransfer, DesktopSpec, FileDialogOptions, FolderDialogOptions, InitOptions, InstallerInfoResponse, InstallerOptions, ModifyTransferOptions, ResumeTransferOptions, SafariExtensionEvent, TransferSpec, WebsocketEvent} from './models';
 import {hiddenStyleList, installerUrl, protocol} from '../constants/constants';
 import {messages} from '../constants/messages';
 import {safariClient} from '../helpers/client/safari-client';
@@ -295,7 +295,7 @@ export class Browser {
   /** Function to test the IBM Aspera Browser status */
   testConnection: () => Promise<any>;
   /** Function to initiate a transfer */
-  startTransfer: (transferSpec: TransferSpec, browserSpec: BrowserSpec) => Promise<BrowserTransfer>;
+  startTransfer: (transferSpec: TransferSpec, desktopSpec: DesktopSpec) => Promise<BrowserTransfer>;
   /** Function to launch IBM Aspera Browser */
   launch: () => void;
   /** Register callback for the transfer activity monitor */
